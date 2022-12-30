@@ -4,7 +4,7 @@
     "declaration": false,
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "outDir": "./build",
+    "outDir": "dist",
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -21,9 +21,10 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "importHelpers": false,
-    "preserveSymlinks": true
+    "preserveSymlinks": true,
+    "rootDir": "src"
   },
   "lib": ["esnext"],
-  "include": ["src", "tests"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
