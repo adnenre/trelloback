@@ -1,6 +1,6 @@
 {
     "name": "trello-backend",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "a simple backend for a trello-clone",
     "scripts": {
         "dev": "ts-node-dev  src/index.ts",
