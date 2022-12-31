@@ -35,7 +35,7 @@ export const login = async (req: Request, res: Response) => {
             return res.status(201).send({ ...error });
         }
 
-        const match = user.checkPassword(password);
+        const match = await user.checkPassword(password);
 
         if (!match) {
             error = {
@@ -65,7 +65,7 @@ export const login = async (req: Request, res: Response) => {
  * @returns
  */
 export const register = async (req: Request, res: Response) => {
-    const { username ,email, password } = req.body;
+    const { username, email, password } = req.body;
     let error = {};
     const result = ValidateService.register({ username, email, password });
     if (result.error) {
@@ -77,9 +77,7 @@ export const register = async (req: Request, res: Response) => {
         return res.status(201).send({ ...error });
     }
     try {
-        const user = await User.findOne({ email })
-            .select('email')
-            .exec();
+        const user = await User.findOne({ email }).select('email').exec();
 
         if (user) {
             error = {
